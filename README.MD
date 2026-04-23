@@ -114,32 +114,32 @@ API доступно по адресу: `http://localhost:8082`
 
 ##  Проекты и их назначение
 
-- `TestMigrator.DapperMigrator`
-  - Web API на Dapper
-  - Использует Npgsql и Dapper
-  - Swagger включён
-  - Подключение через ConnectionStrings__DefaultConnection
+### TestMigrator.DapperMigrator
+- Web API на Dapper
+- Использует Npgsql и Dapper
+- Swagger включён
+- Подключение через ConnectionStrings__DefaultConnection
 
-- `TestMigrator.DbMigrator`
-  - Консольный мигратор на FluentMigrator
-  - Читает appsettings.json
-  - Применяет миграции к Postgres
+### TestMigrator.DbMigrator
+- Консольный мигратор на FluentMigrator
+- Читает appsettings.json
+- Применяет миграции к Postgres
 
-- `TestMigrator.EfCoreDefault`
-  - Web API на EF Core
-  - Использует Npgsql.EntityFrameworkCore.PostgreSQL
-  - Поддерживает миграции через CLI
+### TestMigrator.EfCoreDefault
+- Web API на EF Core
+- Использует Npgsql.EntityFrameworkCore.PostgreSQL
+- Поддерживает миграции через CLI
 
-- `TestMigrator.HybridEfCoreMigrator`
-  - Генерирует SQL‑скрипт миграций EF Core
-  - Скрипт сохраняется в volume /scripts/init.sql
+### TestMigrator.HybridEfCoreMigrator
+- Генерирует SQL‑скрипт миграций EF Core
+- Скрипт сохраняется в volume /scripts/init.sql
 
-- `TestMigrator.HybridDapperMigrator`
-  - Web API на Dapper
-  - Работает поверх схемы, созданной EF Core
+### TestMigrator.HybridDapperMigrator
+- Web API на Dapper
+- Работает поверх схемы, созданной EF Core
 
-- `TestMigrator.HybridShared`
-  - Общие модели и логика для Hybrid‑подхода
+### TestMigrator.HybridShared
+- Общие модели и логика для Hybrid‑подхода
 
 ---
 
@@ -159,27 +159,35 @@ API доступно по адресу: `http://localhost:8082`
 
 ## Seed‑данные
 
-В папке deploy/sql-scripts находятся SQL‑файлы:
-- 01_seed_data.sql
-- 02_seed_companies.sql
-- 03_seed_employees.sql
-- 04_seed_test.sql
+В папке `deploy/sql-scripts` находятся SQL‑файлы:
+```code
+01_seed_data.sql
+02_seed_companies.sql
+03_seed_employees.sql
+04_seed_test.sql
+```
 
-Они автоматически применяются в Hybrid‑сценарии.
+Они автоматически применяются в **Hybrid**‑сценарии.
 
 ---
 
 ## Полезные команды
 
-Создать EF Core миграцию
+Создать **EF Core** миграцию
+```bash
 dotnet ef migrations add InitialCreate -p src/EfCoreMigrator/TestMigrator.EfCoreDefault
+```
 
 Применить миграции вручную
+```bash
 dotnet ef database update -p src/EfCoreMigrator/TestMigrator.EfCoreDefault
+```
 
 Пересобрать контейнеры
+```bash
 docker compose down -v
 docker compose up --build
+```
 
 ---
 
@@ -187,7 +195,9 @@ docker compose up --build
 
 Чтобы полностью очистить окружение (контейнеры, образы, тома, сети), можно использовать скрипт:
 
-`cleanup-all.sh`
+**`cleanup-all.sh`**
+
+```bash
 #!/bin/bash
 
 echo "Stopping and removing all containers, images, volumes and networks for this project..."
@@ -197,6 +207,7 @@ docker compose -f deploy/docker-compose.efcoredefault.yml down -v --rmi all --re
 docker compose -f deploy/docker-compose.hybrid.yml down -v --rmi all --remove-orphans
 
 echo "Done."
+```
 
 ### Как использовать
 
