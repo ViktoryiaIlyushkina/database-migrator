@@ -20,7 +20,7 @@ services:
 
   migrator:
     build:
-      context: ..
+      context: ../src
       dockerfile: DapperMigrator/TestMigrator.DbMigrator/Dockerfile
     container_name: company_migrator
     environment:
@@ -31,7 +31,7 @@ services:
 
   api:
     build:
-      context: ..
+      context: ../src
       dockerfile: DapperMigrator/TestMigrator.DapperMigrator/Dockerfile
     container_name: company_api
     ports:

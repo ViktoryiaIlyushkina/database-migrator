@@ -12,10 +12,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Default/TestMigrator.EfCoreDefault/TestMigrator.EfCoreDefault.csproj", "Default/TestMigrator.EfCoreDefault/"]
-RUN dotnet restore "./Default/TestMigrator.EfCoreDefault/TestMigrator.EfCoreDefault.csproj"
+COPY ["EfCoreMigrator/TestMigrator.EfCoreDefault/TestMigrator.EfCoreDefault.csproj", "EfCoreMigrator/TestMigrator.EfCoreDefault/"]
+RUN dotnet restore "./EfCoreMigrator/TestMigrator.EfCoreDefault/TestMigrator.EfCoreDefault.csproj"
 COPY . .
-WORKDIR "/src/Default/TestMigrator.EfCoreDefault"
+WORKDIR "/src/EfCoreMigrator/TestMigrator.EfCoreDefault"
 RUN dotnet build "./TestMigrator.EfCoreDefault.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage

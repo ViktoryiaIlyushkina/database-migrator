@@ -23,13 +23,13 @@ public class CompaniesController : ControllerBase
         using var connection = new NpgsqlConnection(_connectionString);
 
         var sql = @"
-            SELECT c.id, c.name, c.email, e.id, e.fullname as FullName
-            FROM companies c
-            LEFT JOIN employees e ON c.id = e.companyid";
+            SELECT c.""Id"", c.""Name"", c.""Email"", e.""Id"", e.""FullName""
+            FROM ""Companies"" c
+            LEFT JOIN ""Employees"" e ON c.""Id"" = e.""CompanyId""";
 
         var companyDict = new Dictionary<int, CompanyDto>();
 
-        var result = await connection.QueryAsync<CompanyDto, EmployeeDto, CompanyDto>(
+            var result = await connection.QueryAsync<CompanyDto, EmployeeDto, CompanyDto>(
             sql,
             (company, employee) =>
             {
@@ -56,7 +56,7 @@ public class CompaniesController : ControllerBase
     public async Task<IActionResult> CreateCompany(string name, string email)
     {
         using var connection = new NpgsqlConnection(_connectionString);
-        var sql = "INSERT INTO companies (name, email) VALUES (@Name, @Email) RETURNING id";
+        var sql = "INSERT INTO \"Companies\" (\"Name\", \"Email\") VALUES (@Name, @Email) RETURNING \"Id\"";
 
         var id = await connection.ExecuteScalarAsync<int>(sql, new { Name = name, Email = email });
         return Ok(new { Id = id, Name = name, Email = email });

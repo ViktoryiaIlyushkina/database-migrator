@@ -24,8 +24,8 @@ services:
   api:
     image: test-migrator-api
     build:
-      context: ..
-      dockerfile: Default/TestMigrator.EfCoreDefault/Dockerfile
+      context: ../src
+      dockerfile: EfCoreMigrator/TestMigrator.EfCoreDefault/Dockerfile
     container_name: dotnet_api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development

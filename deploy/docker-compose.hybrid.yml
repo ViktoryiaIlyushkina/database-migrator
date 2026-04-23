@@ -18,7 +18,7 @@ services:
   # Этап 1: Генерация SQL-скрипта из моделей EF Core
   ef_gen_script:
     build:
-      context: ..
+      context: ../src
       dockerfile: HybridMigrator/TestMigrator.HybridEfCoreMigrator/Dockerfile
     volumes:
       - migration_scripts:/scripts
@@ -63,7 +63,7 @@ services:
   # Этап 3: Запуск основного API на Dapper
   api:
     build:
-      context: ..
+      context: ../src
       dockerfile: HybridMigrator/TestMigrator.DapperHybridMigrator/Dockerfile
     environment:
       ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=my_database;Username=user;Password=password"
