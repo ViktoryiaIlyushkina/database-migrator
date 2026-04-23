@@ -1,0 +1,44 @@
+version: '3.8'
+name: dapper-app-group
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: company_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: my_api_db
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d my_api_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  migrator:
+    build:
+      context: ..
+      dockerfile: DapperMigrator/TestMigrator.DbMigrator/Dockerfile
+    container_name: company_migrator
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=my_api_db;Username=postgres;Password=your_password
+    depends_on:
+      db:
+        condition: service_healthy 
+
+  api:
+    build:
+      context: ..
+      dockerfile: DapperMigrator/TestMigrator.DapperMigrator/Dockerfile
+    container_name: company_api
+    ports:
+      - "8081:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=my_api_db;Username=postgres;Password=your_password
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      migrator:
+        condition: service_completed_successfully # Ключевой момент: ждем успешного завершения мигратора

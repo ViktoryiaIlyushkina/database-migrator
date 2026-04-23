@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TestMigrator.HybridEfCoreMigrator": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

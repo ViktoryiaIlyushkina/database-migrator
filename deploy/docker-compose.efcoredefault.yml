@@ -1,0 +1,40 @@
+name: efcore-app-group
+
+services:
+  # Сервис базы данных
+  db:
+    image: postgres:16-alpine
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: library_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Сервис твоего .NET Web API
+  api:
+    image: test-migrator-api
+    build:
+      context: ..
+      dockerfile: Default/TestMigrator.EfCoreDefault/Dockerfile
+    container_name: dotnet_api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=library_db;Username=postgres;Password=your_password
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy # Запуск API только после того, как БД будет готова принимать подключения
+
+volumes:
+  postgres_data:
