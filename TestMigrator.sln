@@ -3,27 +3,39 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Default", "Default", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.EfCoreDefault", "Default\TestMigrator.EfCoreDefault\TestMigrator.EfCoreDefault.csproj", "{D42EAB5E-3D23-DBE5-71EC-74FE3A2D9FF2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DapperMigrator", "DapperMigrator", "{DAF50A89-7142-45FA-A6A6-89AEDA629198}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.DapperMigrator", "DapperMigrator\TestMigrator.DapperMigrator\TestMigrator.DapperMigrator.csproj", "{EBD9CE6B-D4E3-D5B6-91D4-A47C3520585E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.DbMigrator", "DapperMigrator\TestMigrator.DbMigrator\TestMigrator.DbMigrator.csproj", "{F412BDAB-38FC-4BF6-92CD-8CE0F96913D7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HybridMigrator", "HybridMigrator", "{2EEFAAAA-0CC1-4B62-AFDE-782716B051A5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.HybridDapperMigrator", "HybridMigrator\TestMigrator.DapperHybridMigrator\TestMigrator.HybridDapperMigrator.csproj", "{1367C008-171C-AF78-BA31-7D559180360E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.HybridShared", "HybridMigrator\TestMigrator.HybridShared\TestMigrator.HybridShared.csproj", "{E4352033-B201-41C9-A546-08E2162DAC9F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.HybridEfCoreMigrator", "HybridMigrator\TestMigrator.HybridEfCoreMigrator\TestMigrator.HybridEfCoreMigrator.csproj", "{F5BAB1BB-F6EF-46E1-B508-3FB2C8AD8EC3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hybrid Items", "Hybrid Items", "{6B54F4B3-8447-4279-A28A-E407299DAB64}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{454C0529-B8AF-48BD-B734-4DC4421F6CCB}"
 	ProjectSection(SolutionItems) = preProject
-		deploy\sql-scripts\seed_data.sql = deploy\sql-scripts\seed_data.sql
+		deploy\docker-compose.dapper.yml = deploy\docker-compose.dapper.yml
+		deploy\docker-compose.efcoredefault.yml = deploy\docker-compose.efcoredefault.yml
+		deploy\docker-compose.hybrid.yml = deploy\docker-compose.hybrid.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DapperMigrator", "DapperMigrator", "{7B913725-46EB-4968-9AF7-B29C832FC31A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EfCoreMigrator", "EfCoreMigrator", "{28B55114-04F2-49CB-97D8-10EFD08CD6F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HybridMigrator", "HybridMigrator", "{684C86AF-C2B9-4AF7-A349-97E2169107E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.DapperMigrator", "src\DapperMigrator\TestMigrator.DapperMigrator\TestMigrator.DapperMigrator.csproj", "{485042C5-D446-9495-6B44-A9F3595F4A71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.DbMigrator", "src\DapperMigrator\TestMigrator.DbMigrator\TestMigrator.DbMigrator.csproj", "{04DBAD4A-D6C0-7F2E-A61B-D4D089A2AB07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.EfCoreDefault", "src\EfCoreMigrator\TestMigrator.EfCoreDefault\TestMigrator.EfCoreDefault.csproj", "{5F1760CD-1F0B-A3C7-CCFF-41F2561E9BB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.HybridDapperMigrator", "src\HybridMigrator\TestMigrator.DapperHybridMigrator\TestMigrator.HybridDapperMigrator.csproj", "{303F87FE-41BE-F513-99A3-8D964B886560}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.HybridEfCoreMigrator", "src\HybridMigrator\TestMigrator.HybridEfCoreMigrator\TestMigrator.HybridEfCoreMigrator.csproj", "{4886D403-958D-B1ED-8AF7-B06A8E08F8CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMigrator.HybridShared", "src\HybridMigrator\TestMigrator.HybridShared\TestMigrator.HybridShared.csproj", "{559EE68D-1EC5-8A4F-5429-18178F9F95A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql-scripts", "sql-scripts", "{A8B82254-B5C7-4A67-B291-E38F5DA5272A}"
+	ProjectSection(SolutionItems) = preProject
+		deploy\sql-scripts\01_seed_data.sql = deploy\sql-scripts\01_seed_data.sql
+		deploy\sql-scripts\02_seed_companies.sql = deploy\sql-scripts\02_seed_companies.sql
+		deploy\sql-scripts\03_seed_employees.sql = deploy\sql-scripts\03_seed_employees.sql
+		deploy\sql-scripts\04_seed_test.sql = deploy\sql-scripts\04_seed_test.sql
 	EndProjectSection
 EndProject
 Global
@@ -32,42 +44,45 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D42EAB5E-3D23-DBE5-71EC-74FE3A2D9FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D42EAB5E-3D23-DBE5-71EC-74FE3A2D9FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D42EAB5E-3D23-DBE5-71EC-74FE3A2D9FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D42EAB5E-3D23-DBE5-71EC-74FE3A2D9FF2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EBD9CE6B-D4E3-D5B6-91D4-A47C3520585E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBD9CE6B-D4E3-D5B6-91D4-A47C3520585E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBD9CE6B-D4E3-D5B6-91D4-A47C3520585E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBD9CE6B-D4E3-D5B6-91D4-A47C3520585E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F412BDAB-38FC-4BF6-92CD-8CE0F96913D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F412BDAB-38FC-4BF6-92CD-8CE0F96913D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F412BDAB-38FC-4BF6-92CD-8CE0F96913D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F412BDAB-38FC-4BF6-92CD-8CE0F96913D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1367C008-171C-AF78-BA31-7D559180360E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1367C008-171C-AF78-BA31-7D559180360E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1367C008-171C-AF78-BA31-7D559180360E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1367C008-171C-AF78-BA31-7D559180360E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4352033-B201-41C9-A546-08E2162DAC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4352033-B201-41C9-A546-08E2162DAC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4352033-B201-41C9-A546-08E2162DAC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4352033-B201-41C9-A546-08E2162DAC9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F5BAB1BB-F6EF-46E1-B508-3FB2C8AD8EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F5BAB1BB-F6EF-46E1-B508-3FB2C8AD8EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F5BAB1BB-F6EF-46E1-B508-3FB2C8AD8EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F5BAB1BB-F6EF-46E1-B508-3FB2C8AD8EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485042C5-D446-9495-6B44-A9F3595F4A71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485042C5-D446-9495-6B44-A9F3595F4A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485042C5-D446-9495-6B44-A9F3595F4A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485042C5-D446-9495-6B44-A9F3595F4A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04DBAD4A-D6C0-7F2E-A61B-D4D089A2AB07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04DBAD4A-D6C0-7F2E-A61B-D4D089A2AB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04DBAD4A-D6C0-7F2E-A61B-D4D089A2AB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04DBAD4A-D6C0-7F2E-A61B-D4D089A2AB07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F1760CD-1F0B-A3C7-CCFF-41F2561E9BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F1760CD-1F0B-A3C7-CCFF-41F2561E9BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F1760CD-1F0B-A3C7-CCFF-41F2561E9BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F1760CD-1F0B-A3C7-CCFF-41F2561E9BB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{303F87FE-41BE-F513-99A3-8D964B886560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{303F87FE-41BE-F513-99A3-8D964B886560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{303F87FE-41BE-F513-99A3-8D964B886560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{303F87FE-41BE-F513-99A3-8D964B886560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4886D403-958D-B1ED-8AF7-B06A8E08F8CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4886D403-958D-B1ED-8AF7-B06A8E08F8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4886D403-958D-B1ED-8AF7-B06A8E08F8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4886D403-958D-B1ED-8AF7-B06A8E08F8CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{559EE68D-1EC5-8A4F-5429-18178F9F95A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{559EE68D-1EC5-8A4F-5429-18178F9F95A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{559EE68D-1EC5-8A4F-5429-18178F9F95A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{559EE68D-1EC5-8A4F-5429-18178F9F95A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D42EAB5E-3D23-DBE5-71EC-74FE3A2D9FF2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{EBD9CE6B-D4E3-D5B6-91D4-A47C3520585E} = {DAF50A89-7142-45FA-A6A6-89AEDA629198}
-		{F412BDAB-38FC-4BF6-92CD-8CE0F96913D7} = {DAF50A89-7142-45FA-A6A6-89AEDA629198}
-		{1367C008-171C-AF78-BA31-7D559180360E} = {2EEFAAAA-0CC1-4B62-AFDE-782716B051A5}
-		{E4352033-B201-41C9-A546-08E2162DAC9F} = {2EEFAAAA-0CC1-4B62-AFDE-782716B051A5}
-		{F5BAB1BB-F6EF-46E1-B508-3FB2C8AD8EC3} = {2EEFAAAA-0CC1-4B62-AFDE-782716B051A5}
-		{6B54F4B3-8447-4279-A28A-E407299DAB64} = {2EEFAAAA-0CC1-4B62-AFDE-782716B051A5}
+		{7B913725-46EB-4968-9AF7-B29C832FC31A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{28B55114-04F2-49CB-97D8-10EFD08CD6F3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{684C86AF-C2B9-4AF7-A349-97E2169107E0} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{485042C5-D446-9495-6B44-A9F3595F4A71} = {7B913725-46EB-4968-9AF7-B29C832FC31A}
+		{04DBAD4A-D6C0-7F2E-A61B-D4D089A2AB07} = {7B913725-46EB-4968-9AF7-B29C832FC31A}
+		{5F1760CD-1F0B-A3C7-CCFF-41F2561E9BB7} = {28B55114-04F2-49CB-97D8-10EFD08CD6F3}
+		{303F87FE-41BE-F513-99A3-8D964B886560} = {684C86AF-C2B9-4AF7-A349-97E2169107E0}
+		{4886D403-958D-B1ED-8AF7-B06A8E08F8CC} = {684C86AF-C2B9-4AF7-A349-97E2169107E0}
+		{559EE68D-1EC5-8A4F-5429-18178F9F95A1} = {684C86AF-C2B9-4AF7-A349-97E2169107E0}
+		{A8B82254-B5C7-4A67-B291-E38F5DA5272A} = {454C0529-B8AF-48BD-B734-4DC4421F6CCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25F2F918-38D3-4F3D-B875-BA07BBD3D358}
